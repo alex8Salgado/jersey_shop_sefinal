@@ -1,11 +1,11 @@
 <?php
-// Connect to the database
+
 $conn = mysqli_connect("localhost", "root", "", "jersey_shop");
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-// Get all products in the Soccer category 
+// Get products in the Soccer category 
 $sql = "SELECT * FROM products WHERE LOWER(category) = 'soccer'";
 $result = mysqli_query($conn, $sql);
 ?>
@@ -97,14 +97,14 @@ $result = mysqli_query($conn, $sql);
                     <p>Price: $<?php echo number_format($jersey['price'], 2); ?></p>
                     <p><strong>In stock: <?php echo $jersey['stock']; ?></strong></p>
 
-                    	<!-- Add to Cart Form -->
+                    	
 		    <form action="cart.php" method="post">
   			<input type="hidden" name="product" value="<?php echo htmlspecialchars($jersey['title']); ?>">
     			<input type="hidden" name="price" value="<?php echo $jersey['price']; ?>">
     			<button type="submit">Add to Cart</button>
 		    </form>
 
-			<!-- Add to Collection Form -->
+			
 		    <form action="add_to_collection.php" method="post">
    			<input type="hidden" name="product" value="<?php echo htmlspecialchars($jersey['title']); ?>">
     			<input type="hidden" name="image" value="<?php echo htmlspecialchars($jersey['image']); ?>">
