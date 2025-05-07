@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Jersey Shop</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding-top: 50px;
+        }
+        h1 {
+            color: darkblue;
+        }
+        .category-links a {
+            display: block;
+            margin: 10px;
+            font-size: 20px;
+            text-decoration: none;
+            color: darkgreen;
+        }
+        .category-links a:hover {
+            color: orangered;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Welcome to My Jersey Shop!</h1>
+    <p>What sport are you looking for?</p>
+
+    <div class="category-links">
+        <a href="category.php?cat=Basketball">Basketball Jerseys</a>
+        <a href="SoccerPage.php">Soccer Jerseys</a>
+        <a href="category.php?cat=Football">Football Jerseys</a>
+        <a href="category.php?cat=Baseball">Baseball Jerseys</a>
+    </div>
+
+</body>
+</html>

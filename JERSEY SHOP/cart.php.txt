@@ -1,0 +1,44 @@
+<?php
+session_start();
+
+// Initialize cart if it doesn't exist
+if (!isset($_SESSION['cart'])) {
+    $_SESSION['cart'] = [];
+}
+
+// Handle "Add to Cart" from product pages
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['product']) && isset($_POST['price'])) {
+    $_SESSION['cart'][] = [
+        'name' => $_POST['product'],
+        'price' => $_POST['price']
+    ];
+}
+
+// Calculate total
+$total = 0;
+foreach ($_SESSION['cart'] as $item) {
+    $total += $item['price'];
+}
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Your Cart</title>
+</head>
+<body>
+    <h1>Your Shopping Cart</h1>
+
+    <?php if (empty($_SESSION['cart'])): ?>
+        <p>Your cart is empty.</p>
+    <?php else: ?>
+        <ul>
+            <?php foreach ($_SESSION['cart'] as $item): ?>
+                <li><?php echo htmlspecialchars($item['name']) . " — $" . number_format($item['price'], 2); ?></li>
+            <?php endforeach; ?>
+        </ul>
+        <p><strong>Total: $<?php echo number_format($total, 2); ?></strong></p>
+        <a href="checkout.php">Proceed to Checkout</a>
+    <?php endif; ?>
+</body>
+</html>
