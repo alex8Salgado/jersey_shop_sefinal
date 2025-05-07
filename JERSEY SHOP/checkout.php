@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-// Redirect if cart is empty
+
 if (!isset($_SESSION['cart']) || empty($_SESSION['cart'])) {
     echo "<p style='text-align:center; color:red;'>Your cart is empty. <a href='index.php'>Shop now</a></p>";
     exit();
