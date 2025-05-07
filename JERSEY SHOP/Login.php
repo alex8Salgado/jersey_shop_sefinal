@@ -5,13 +5,13 @@ session_start();
 $adminUsername = "Admin1";
 $adminPassword = "AdminPass";
 
-// If already logged in, redirect
+
 if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
     header("Location: loginsuccess.php");
     exit();
 }
 
-// Handle form submission
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $inputUser = $_POST['username'];
     $inputPass = $_POST['password'];
