@@ -18,6 +18,7 @@ Built using PHP, MySQL, HTML, and CSS — designed for local use with XAMPP.
 2. Start Apache and MySQL from the XAMPP Control Panel
 3. Open `http://localhost/phpmyadmin` and import the database
 4. Visit `http://localhost/index1.php` in your browser
+5. THE CORRECT CREDENTIALS ARE username = "Admin1" password = "AdminPass"
 
 ## Database
 
