@@ -2,7 +2,7 @@
 session_start();
 $conn = mysqli_connect("localhost", "root", "", "jersey_shop");
 
-// Validate and process order
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $first = htmlspecialchars($_POST['first_name']);
     $last = htmlspecialchars($_POST['last_name']);
@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $orderedItems = $_SESSION['cart'] ?? [];
 
-    // Update stock and validate availability
+    // To Update stock 
     foreach ($orderedItems as $item) {
         $title = mysqli_real_escape_string($conn, $item['name']);
         $qty = isset($item['quantity']) ? intval($item['quantity']) : 1;
@@ -31,11 +31,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             exit();
         }
 
-        // Reduce stock
         mysqli_query($conn, "UPDATE products SET stock = stock - $qty WHERE title = '$title'");
     }
 
-    // Clear the cart after purchase
+    
     $_SESSION['cart'] = [];
 }
 ?>
